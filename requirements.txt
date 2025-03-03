@@ -7,3 +7,4 @@ packaging==24.2
 python-decouple==3.8
 sqlparse==0.5.3
 setuptools
+whitenoise==6.9.0
