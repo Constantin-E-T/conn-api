@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     
     # REST framework
     'rest_framework',
+    'drf_yasg',
     
     # Project apps
     'api',
@@ -61,6 +62,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',  # Add browsable API
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [],  # No authentication by default
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',  # Allow any user by default
     ],
 }
 

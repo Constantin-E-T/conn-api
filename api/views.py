@@ -3,6 +3,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import redirect
 
 
 class HealthCheckView(APIView):
@@ -16,6 +17,7 @@ class HealthCheckView(APIView):
             status=status.HTTP_200_OK
         )
 
+
 class IndexView(APIView):
     """Root endpoint that provides API information"""
     authentication_classes = []
@@ -27,7 +29,11 @@ class IndexView(APIView):
             "version": "1.0.0",
             "description": "A simple Django REST API",
             "endpoints": {
-                "health_check": "/api/health/"
+                "health_check": "/api/health/",
+                "documentation": "/swagger/"
             }
         }
-        return Response(api_info)
+        # return Response(api_info)
+        # Alternatively, you can redirect to the Swagger UI:
+        return redirect('schema-swagger-ui')
+        
