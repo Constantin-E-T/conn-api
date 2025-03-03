@@ -2,6 +2,9 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
+# Update pip first
+RUN pip install --upgrade pip --root-user-action=ignore
+
 # Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir --root-user-action=ignore -r requirements.txt
