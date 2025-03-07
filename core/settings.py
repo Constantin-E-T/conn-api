@@ -1,13 +1,11 @@
 from pathlib import Path
 from decouple import config, Csv
 
-# Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-key-for-dev')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
@@ -63,11 +61,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',  # Add browsable API
+        'rest_framework.renderers.BrowsableAPIRenderer',  
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [],  # No authentication by default
+    'DEFAULT_AUTHENTICATION_CLASSES': [],  
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',  # Allow any user by default
+        'rest_framework.permissions.AllowAny', 
     ],
 }
 
